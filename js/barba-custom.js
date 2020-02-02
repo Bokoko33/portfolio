@@ -46,9 +46,31 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
   }
 
   // 外部jsファイル読み込み
-  var script = document.createElement('script');
-  script.src = '../js/script.js';
-  document.body.appendChild(script);
+  // var script = document.createElement('script');
+  // script.src = '../js/script.js';
+  // document.body.appendChild(script);
+  //マウスカーソルと追従
+var onLink = false;
+const _cursor = document.getElementById('cursor');
+const _follower = document.getElementById('follower');
+const linkElem = document.querySelectorAll('a'); //aタグを取得
+
+document.addEventListener('mousemove', function (e) {
+    _cursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+    _follower.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+});
+
+for(var i=0;i<linkElem.length;i++){
+    linkElem[i].addEventListener('mouseenter',function(e){
+        onLink = true;
+        _follower.classList.add('hov_');
+    });
+    linkElem[i].addEventListener('mouseout', function (e) {
+        onLink= false;
+        _follower.classList.remove('hov_');
+    });
+  }
+    
 
   // Google Analyticsにヒットを送信
 //   ga('send', 'pageview', location.pathname);
