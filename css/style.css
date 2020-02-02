@@ -1,5 +1,41 @@
 html {
+  cursor: none;
   font-size: 10px;
+}
+
+#cursor, #follower {
+  border-radius: 50%;
+  position: fixed;
+  cursor: none;
+  transform: translate(0, 0);
+  pointer-events: none;
+}
+
+#cursor {
+  width: 14px;
+  height: 14px;
+  top: -7px;
+  left: -7px;
+  background-color: #d4e8c8;
+  z-index: 1001;
+}
+
+#follower {
+  width: 30px;
+  height: 30px;
+  top: -15px;
+  left: -15px;
+  transition: transform 0.5s;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  background-color: rgba(142, 29, 67, 0.7);
+  z-index: 1000;
+}
+
+#follower.hov_ {
+  top: -32px;
+  left: -32px;
+  width: 64px;
+  height: 64px;
 }
 
 .content {
@@ -25,7 +61,26 @@ header ul li {
   font-family: "Josefin Sans", sans-serif;
   font-size: 2.8rem;
   display: inline-block;
-  padding: 10px 25px;
+  padding: 10px 15px 3px;
+  margin: 0 10px;
+  position: relative;
+}
+
+header ul li:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  background: #d4e8c8;
+  left: 50%;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 50%;
+  transition: all .3s;
+}
+
+header ul li:hover:before {
+  width: 100%;
+  left: 0;
 }
 
 #defaultCanvas0 {
@@ -35,6 +90,7 @@ header ul li {
 }
 
 a {
+  cursor: none;
   color: #d4e8c8;
   text-decoration: none;
 }

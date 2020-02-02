@@ -1,19 +1,21 @@
-var background_c;
-var line_c;
+var background_c; //背景色
+var line_c; //線の色
 
 var isDraw; //ベジェアニメーションが始まったかどうか
 var drawP; //実際に動く点
 var boxP1,boxP2,boxP3; //box生成アニメーションの軸三本用の点
-var rot; //回転角
+var rot; //回転角(カメラの)
 var fpos; //開始地点
 var offset = 20; //はみ出す部分のオフセット
 var num = 4; //線の数
-
 var pIndex = new Array();
-
 var canvas;
 
 var opening_finished; //オープニングが終了したか
+var obj_rot = 0;
+var nMouseX = 0;
+var preMouseX ;
+var rot_amount; //回転量
 
 class Point{
     constructor(_prepos,_pos){
@@ -40,7 +42,7 @@ class Point{
         
         return;
       }
-      if(frameCount<181){
+      if(frameCount<180){
         var cv = p5.Vector.sub(this.center,this.pos);
         this.vel.add(cv.mult(0.01));
       }
@@ -48,7 +50,7 @@ class Point{
       //  PVector cv = PVector.sub(center,this.pos);
       //  this.vel.add(cv.mult(0.01));
       //}
-      this.vel.limit(7);
+      this.vel.limit(5);
       this.prepos.set(this.pos);
       this.pos.add(this.vel);
       var _p = new Point(this.prepos,this.pos);
@@ -71,8 +73,9 @@ class Point{
         
       }
       else{
-        this.vel.set(dir);
-        this.coreR +=1.1;
+        //線の描かれる速さ、球の大きくなる速さ
+        this.vel.set(dir.mult(3));
+        this.coreR += 0.5;
       }
         
       
@@ -152,7 +155,7 @@ function canvasSetup(){
 
     background(background_c);
     
-    fpos = createVector(-200,-200,-200);
+    fpos = createVector(-130,-130,-130);
     
     
 }
@@ -175,16 +178,41 @@ function setup(){
     rot = 0;
 
     opening_finished = false;
+    preMouseX = 0;
+    nMouseX = 0;
+    rot_amount = 0;
 }
 
 function draw(){
   background(background_c);
-  translate(width/2,height/2);
-  camera(-1000*sin(rot),0,-1000*cos(rot),0,0,0,0,1,0);
+  // translate(width/2,height/2);
+  // camera(0,0,-1000,0,0,0,0,1,0);
+ 
+  push();
+  if(opening_finished){
+    // マウスを動かすと回転
+    nMouseX = mouseX - preMouseX;
+    if(abs(nMouseX)>70){
+      rot_amount = nMouseX*0.15;
+    }
+    if(abs(nMouseX)>30 && abs(rot_amount)<10){
+      rot_amount = nMouseX*0.15;
+    }
+    obj_rot += rot_amount;
+    rot_amount *= 0.9;
+    
+    // if(abs(rot_amount)<0.1){
+    //   rotateY(map(mouseX,0,width, 0.5*PI, -0.5*PI));
+    // }
+    rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
+  }
+  rotateY(radians(obj_rot));
+  preMouseX = mouseX;
   
-  boxP1.startBox(createVector(6,0,0));
-  boxP2.startBox(createVector(0,6,0));
-  boxP3.startBox(createVector(0,0,6));
+  
+  boxP1.startBox(createVector(1,0,0));
+  boxP2.startBox(createVector(0,1,0));
+  boxP3.startBox(createVector(0,0,1));
   
   
   
@@ -194,13 +222,10 @@ function draw(){
     drawP.update();
     drawP.draw();
   }
-  
-  
   for(var i=0;i<pIndex.length;i++){
     pIndex[i].draw();
   }
-    rot += 0.005;
-
-    console.log(pIndex.length);
+  obj_rot -= 0.2;
+  console.log(pIndex.length);
 }
 

@@ -45,6 +45,11 @@ Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container
       head.appendChild(newHeadTags[i]);
   }
 
+  // 外部jsファイル読み込み
+  var script = document.createElement('script');
+  script.src = '../js/script.js';
+  document.body.appendChild(script);
+
   // Google Analyticsにヒットを送信
 //   ga('send', 'pageview', location.pathname);
 

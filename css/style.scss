@@ -1,5 +1,6 @@
 $text-color:#d4e8c8;
 $bg-color:#21242e;
+$core-color:rgba(142, 29, 67, 0.7);
 $font1:'Josefin Sans', sans-serif;
 $font2:'Noto Sans JP', sans-serif;
 $font3:'Cutive Mono', monospace;
@@ -7,8 +8,43 @@ $thumbnail-width:50vw;
 $list-width:20vw;
 
 html{
+    cursor: none;
     font-size: 10px;
 }
+#cursor,#follower{
+    border-radius: 50%;
+    position: fixed;
+    cursor: none;
+    transform: translate(0,0);
+    pointer-events: none; //他の要素がクリックできなくならないように
+}
+#cursor {
+    width: 14px;
+    height: 14px;
+    top: -7px; //中心を半径分ずらす
+    left: -7px;
+    background-color: $text-color;
+    z-index: 1001; //どの要素よりも一番上になるようにする
+  }
+   
+#follower {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -15px;
+    transition: transform 0.5s;
+    // transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1.0);
+    background-color: $core-color;
+    z-index: 1000; //カーソルの次に上になるようにする
+    &.hov_{
+        top: -32px;     
+        left: -32px;
+        width: 64px;
+        height: 64px;
+        
+      }
+  }
 .content{
     display: none;
 }
@@ -27,7 +63,25 @@ header{
             font-family: $font1;
             font-size: 2.8rem;
             display: inline-block;
-            padding: 10px 25px;
+            padding: 10px 15px 3px;
+            margin: 0 10px;
+            position: relative;
+
+            &:before{
+                content: "";
+                position: absolute;
+                width: 0;
+                background : $text-color;
+                left: 50%;
+                height: 2px;
+                bottom: 0;
+                transform-origin: 50%;
+                transition: all .3s;
+            }
+            &:hover:before{
+                width: 100%;
+                left:0;
+            }
         }
     }
 }
@@ -38,6 +92,7 @@ header{
 }
 
 a{
+    cursor: none;
     color:$text-color;
     text-decoration:none; 
 }
@@ -102,7 +157,6 @@ h1{
         height: 10*$list-width/16;
         margin: 5% 3%;
         position: relative;
-        
         img{
             width:20vw;
             height: 10*$list-width/16;
