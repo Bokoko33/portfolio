@@ -12,40 +12,47 @@ html{
     cursor: none;
     font-size: 10px;
 }
-#cursor,#follower{
-    border-radius: 50%;
-    position: fixed;
-    cursor: none;
-    transform: translate(0,0);
-    pointer-events: none; //他の要素がクリックできなくならないように
-}
-#cursor {
-    width: 14px;
-    height: 14px;
-    top: -7px; //中心を半径分ずらす
-    left: -7px;
-    background-color: $text-color;
-    z-index: 1001; //どの要素よりも一番上になるようにする
-  }
-   
-#follower {
-    width: 30px;
-    height: 30px;
-    top: -15px;
-    left: -15px;
-    transition: transform 0.5s;
-    // transition-timing-function: ease-out;
-    transition-timing-function: cubic-bezier(0, 0, 0.2, 1.0);
-    background-color: $core-color;
-    z-index: 1000; //カーソルの次に上になるようにする
-    &.hov_{
-        top: -32px;     
-        left: -32px;
-        width: 64px;
-        height: 64px;
-        
+@media screen and (min-width:481px){
+    #cursor,#follower{
+        border-radius: 50%;
+        position: fixed;
+        cursor: none;
+        transform: translate(0,0);
+        pointer-events: none; //他の要素がクリックできなくならないように
+    }
+    #cursor {
+        width: 14px;
+        height: 14px;
+        top: -7px; //中心を半径分ずらす
+        left: -7px;
+        background-color: $text-color;
+        z-index: 1001; //どの要素よりも一番上になるようにする
       }
-  }
+       
+    #follower {
+        width: 30px;
+        height: 30px;
+        top: -15px;
+        left: -15px;
+        transition: transform 0.5s;
+        // transition-timing-function: ease-out;
+        transition-timing-function: cubic-bezier(0, 0, 0.2, 1.0);
+        background-color: $core-color;
+        z-index: 1000; //カーソルの次に上になるようにする
+        &.hov_{
+            top: -32px;     
+            left: -32px;
+            width: 64px;
+            height: 64px;
+            
+        }
+    }
+}
+@media screen and (max-width:480px){
+    #cursor,#follower{
+        display: none;
+    }
+}
 .content{
     display: none;
 }

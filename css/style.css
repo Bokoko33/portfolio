@@ -3,39 +3,44 @@ html {
   font-size: 10px;
 }
 
-#cursor, #follower {
-  border-radius: 50%;
-  position: fixed;
-  cursor: none;
-  transform: translate(0, 0);
-  pointer-events: none;
+@media screen and (min-width: 481px) {
+  #cursor, #follower {
+    border-radius: 50%;
+    position: fixed;
+    cursor: none;
+    transform: translate(0, 0);
+    pointer-events: none;
+  }
+  #cursor {
+    width: 14px;
+    height: 14px;
+    top: -7px;
+    left: -7px;
+    background-color: #d4e8c8;
+    z-index: 1001;
+  }
+  #follower {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: -15px;
+    transition: transform 0.5s;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    background-color: rgba(142, 29, 67, 0.7);
+    z-index: 1000;
+  }
+  #follower.hov_ {
+    top: -32px;
+    left: -32px;
+    width: 64px;
+    height: 64px;
+  }
 }
 
-#cursor {
-  width: 14px;
-  height: 14px;
-  top: -7px;
-  left: -7px;
-  background-color: #d4e8c8;
-  z-index: 1001;
-}
-
-#follower {
-  width: 30px;
-  height: 30px;
-  top: -15px;
-  left: -15px;
-  transition: transform 0.5s;
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  background-color: rgba(142, 29, 67, 0.7);
-  z-index: 1000;
-}
-
-#follower.hov_ {
-  top: -32px;
-  left: -32px;
-  width: 64px;
-  height: 64px;
+@media screen and (max-width: 480px) {
+  #cursor, #follower {
+    display: none;
+  }
 }
 
 .content {
