@@ -186,7 +186,9 @@ function setup(){
 function draw(){
   background(background_c);
   // translate(width/2,height/2);
-  // camera(0,0,-1000,0,0,0,0,1,0);
+  // ウィンドウ最大での距離:700
+   
+  camera(0,0,580+100000/windowWidth,0,0,0,0,1,0);
  
   push();
   if(opening_finished){
