@@ -194,12 +194,23 @@ function draw(){
   if(opening_finished){
     // マウスを動かすと回転
     nMouseX = mouseX - preMouseX;
-    if(abs(nMouseX)>70){
-      rot_amount = nMouseX*0.15;
+    if(windowWidth>1024){ //PC用
+      if(abs(nMouseX)>70){
+        rot_amount = nMouseX*0.15;
+      }
+      if(abs(nMouseX)>30 && abs(rot_amount)<10){
+        rot_amount = nMouseX*0.15;
+      }
     }
-    if(abs(nMouseX)>30 && abs(rot_amount)<10){
-      rot_amount = nMouseX*0.15;
+    else{ //タブレット、スマホ用
+      if(abs(nMouseX)>10){
+        rot_amount = nMouseX*0.7;
+      }
+      if(abs(nMouseX)>3 && abs(rot_amount)<10){
+        rot_amount = nMouseX*0.3;
+      }
     }
+    
     obj_rot += rot_amount;
     rot_amount *= 0.9;
     
