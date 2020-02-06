@@ -194,20 +194,24 @@ function draw(){
   if(opening_finished){
     // マウスを動かすと回転
     nMouseX = mouseX - preMouseX;
-    if(windowWidth>1024){ //PC用
+    if(windowWidth>800){ //PC用
       if(abs(nMouseX)>70){
         rot_amount = nMouseX*0.15;
       }
       if(abs(nMouseX)>30 && abs(rot_amount)<10){
         rot_amount = nMouseX*0.15;
       }
+      rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
     }
     else{ //タブレット、スマホ用
-      if(abs(nMouseX)>10){
-        rot_amount = nMouseX*0.7;
-      }
-      if(abs(nMouseX)>3 && abs(rot_amount)<10){
-        rot_amount = nMouseX*0.3;
+      if(mouseIsPressed){
+        if(abs(nMouseX)>10){
+          rot_amount = nMouseX*0.7;
+        }
+        if(abs(nMouseX)>3 && abs(rot_amount)<10){
+          rot_amount = nMouseX*0.3;
+        }
+        rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
       }
     }
     
@@ -217,7 +221,7 @@ function draw(){
     // if(abs(rot_amount)<0.1){
     //   rotateY(map(mouseX,0,width, 0.5*PI, -0.5*PI));
     // }
-    rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
+    
   }
   rotateY(radians(obj_rot));
   preMouseX = mouseX;
