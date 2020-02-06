@@ -460,6 +460,7 @@ a {
     width: 75vw;
     margin: auto;
     padding-top: 60px;
+    padding-bottom: 16px;
     left: 0;
     right: 0;
     font-family: "Josefin Sans", sans-serif;
