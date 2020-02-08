@@ -211,8 +211,8 @@ function draw(){
         if(abs(nMouseX)>3 && abs(rot_amount)<10){
           rot_amount = nMouseX*0.3;
         }
-        rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
       }
+      rotateX(map(mouseY,0,height, 0.4*PI, -0.4*PI));
     }
     
     obj_rot += rot_amount;

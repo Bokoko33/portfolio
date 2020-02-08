@@ -55,6 +55,7 @@ html{
 }
 .content{
     display: none;
+    -webkit-overflow-scrolling: scroll;
 }
 header{
     @media screen and (min-width:481px){
@@ -175,14 +176,15 @@ a{
     p{
         @media screen and (min-width:481px){
             font-size: 2.5rem;
+            bottom: 0;
         }
         @media screen and (max-width:480px){
             font-size: 18px;
+            bottom: 60px;
         }
         margin: auto;
         position: absolute;
         color: $text-color;
-        bottom: 4vh;
         left: 0;
         right: 0;
         font-family: $font1;
@@ -382,7 +384,7 @@ h1{
         p{
             font-size: 1.2vw;
             margin: 0.7vh 0;
-            font-family: $font3;
+            font-family: $font1, $font3;
         }
     }
     .work-thumbnail-list{
@@ -441,23 +443,30 @@ h1{
         }
     }
     .work-thumbnail-list{
+        position: absolute;
         width: 80vw;
         left: 0;
         right: 0;
-        margin: 20px auto 40px;
+        margin: 20px auto 60px;
+        bottom: 0;
         display: flex;
-        flex-direction: column;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scroll-snap-align:center;
         list-style: none;
         .work-thumbnail{
             border-style: solid;
+            scroll-snap-align:center;
             border-color:$text-color;
             border-width: 1px;
             width: 70vw;
             height: calc(9*70vw/16);
-            left: 0;
-            right: 0;
-            margin: 12px auto;
+            // left: 0;
+            // right: 0;
+            margin: 0 5px;
             img,iframe{
+                top: 0;
+                left: 0;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
