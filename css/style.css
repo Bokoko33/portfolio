@@ -232,9 +232,15 @@ a {
   display: flex;
   text-align: center;
   list-style: none;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
+}
+
+.works-list::after {
+  content: "";
+  display: block;
+  width: 30%;
 }
 
 .works-list li {
