@@ -5,7 +5,7 @@ $font1:'Josefin Sans', sans-serif;
 $font2:'Noto Sans JP', sans-serif;
 $font3:'Cutive Mono', monospace;
 $thumbnail-width:50vw;
-$list-width_1:20vw;
+$list-width_1:22vw;
 $list-width_2:30vw;
 
 html{
@@ -220,15 +220,16 @@ h1{
     display: flex;
     text-align: center;
     list-style: none;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+
     margin: auto;
     li{
         background-color:white;
         @media screen and (min-width:1024px){
             width:$list-width_1;
             height: 10*$list-width_1/16;
-            margin: 3% 3%;
+            margin: 2% 2%;
         }
         @media screen and (max-width:1023px){
             width:$list-width_2;
@@ -363,30 +364,42 @@ h1{
 
 //以下worksページ
 @media screen and (min-width:481px){
-    .work-details{
-        color: $text-color;
+    .work-left{
         position: fixed;
         width: 22vw;
+        height: 100vh;
+        left: 0;
         margin:auto 12vw; 
-        top:22vh;
-        font-family: $font1;
-        h2{
-            font-size: 3vw;
-        }
-        h3{
-            font-size: 2.5vw;
-        }
-        h4{
-            font-size: 2.5vw;
-            margin: 2vh 0;
-            line-height: 110%;
-        }
-        p{
-            font-size: 1.2vw;
-            margin: 0.7vh 0;
-            font-family: $font1, $font3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .work-details{
+            color: $text-color;
+            position: absolute;
+            width: 100%;
+            // padding-top: 120px;
+            font-family: $font1;
+            
+            h2{
+                font-size: 3vw;
+            }
+            h3{
+                font-size: 2.5vw;
+            }
+            h4{
+                font-size: 2.5vw;
+                margin: 2vh 0;
+                line-height: 110%;
+            }
+            p{
+                font-size: 1.2vw;
+                
+                margin: 0.7vh 0;
+                font-family: $font1, $font3;
+            }
         }
     }
+    
     .work-thumbnail-list{
         width: 50vw;
         // margin-top: 20vh;
@@ -427,6 +440,7 @@ h1{
         font-family: $font1;
         h2{
             font-size:  8vw;
+            margin: 5px 0;
         }
         h3{
             font-size: 5vw;
@@ -437,7 +451,7 @@ h1{
         }
         p{
             font-size: 3vw;
-            margin: 0.7vw 0;
+            margin: 5px 0;
             font-family: $font1, $font3;
             font-weight: 300;
         }
@@ -470,6 +484,7 @@ h1{
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                overflow: hidden;
                 
             }
         } 

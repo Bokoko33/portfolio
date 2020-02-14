@@ -1,7 +1,9 @@
 $(document).on('click', 'a[href*="#"]', function(event) {
-    // if(location.origin.indexOf('work_')){
-    //     location.href = 'index.html' + document.getElementsByTagName('a')[0].getAttribute('href');
-    //     return true;
+    var anchor = event.currentTarget;
+
+    // if(location.href.indexOf("work08") != -1){
+    //     location.href = 'index.html' + anchor.hash;
+    //     return false;
     // }
     // else{
     //     var adjust = 0;
@@ -13,8 +15,7 @@ $(document).on('click', 'a[href*="#"]', function(event) {
     //     return false;
     // }
 
-    var anchor = event.currentTarget;
-
+    
     if (anchor.target !== '' && anchor.target !== window.name) {
         return true;
     }
