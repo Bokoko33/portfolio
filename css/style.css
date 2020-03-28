@@ -89,41 +89,78 @@ html {
 
 @media screen and (max-width: 480px) {
   header {
-    width: 100vw;
-    height: 36px;
+    display: none;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  #menu-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #menu-icon {
+    z-index: 11;
+    width: 50px;
+    height: 50px;
+    display: block;
     position: fixed;
-    top: 0;
-    background-color: #21242e;
-    z-index: 10;
-  }
-  header ul {
-    text-align: right;
-    list-style: none;
-    margin: 1% 5%;
-  }
-  header ul li {
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 16px;
-    display: inline-block;
-    padding: 10px 3px 5px;
-    margin: 2px 5px;
-    position: relative;
-  }
-  header ul li:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    background: #d4e8c8;
-    left: 50%;
-    height: 2px;
     bottom: 0;
-    transform-origin: 50%;
-    transition: all .3s;
+    right: 0;
+    margin: 7vh 10vw;
   }
-  header ul li:hover:before {
+  #menu-icon img {
     width: 100%;
-    left: 0;
+    height: 100%;
   }
+}
+
+.smart-menu-modal {
+  z-index: 100;
+  display: none;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.smart-menu-modal #overlay {
+  background-color: rgba(10, 10, 10, 0.7);
+  width: 100%;
+  height: 100%;
+}
+
+.smart-menu-modal nav {
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+  margin: auto;
+  text-align: center;
+}
+
+.smart-menu-modal nav ul {
+  margin: 26vh 0;
+}
+
+.smart-menu-modal nav ul li {
+  margin: 8vh 0;
+  font-size: 10vw;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.smart-menu-modal #close-icon {
+  width: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 7vh 10vw;
+}
+
+.smart-menu-modal #close-icon img {
+  width: 100%;
+  height: 100%;
 }
 
 #defaultCanvas0 {
@@ -218,7 +255,7 @@ a {
     height: 12vw;
     text-align: center;
     color: #d4e8c8;
-    font-size: 6vw;
+    font-size: 8vw;
     font-family: "Josefin Sans", sans-serif;
   }
 }
@@ -228,13 +265,24 @@ a {
 }
 
 .works-list {
-  width: 80vw;
   display: flex;
   text-align: center;
   list-style: none;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
+}
+
+@media screen and (min-width: 481px) {
+  .works-list {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .works-list {
+    width: 80vw;
+  }
 }
 
 .works-list::after {
@@ -266,7 +314,7 @@ a {
 
 @media screen and (max-width: 480px) {
   .works-list li {
-    width: 80vw;
+    width: 100%;
     height: calc(10*80vw/16);
     margin: 6vw 0;
   }
@@ -448,7 +496,7 @@ a {
   }
   .work-thumbnail-list {
     width: 50vw;
-    margin: 10vw 5vw;
+    margin: 22vh 5vw;
     display: flex;
     flex-direction: column;
     float: right;
@@ -503,8 +551,8 @@ a {
     width: 80vw;
     left: 0;
     right: 0;
-    margin: 20px auto 60px;
-    bottom: 0;
+    margin: auto;
+    bottom: 17vh;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;

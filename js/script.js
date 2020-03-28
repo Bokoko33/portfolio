@@ -59,4 +59,28 @@ for(var i=0;i<linkElem.length;i++){
     });
     
 }
+
+
+// スマホメニューの動き
+$(function(){
+    $('#menu-icon').click(function(){
+        $('#menu-icon').css('display','none');
+        $('.smart-menu-modal').fadeIn(200);
+
+        // スクロール防止
+        $('html,body').css('overflow','hidden');
+        $(window).on('touchmove', function(event) { //スマホ
+            event.preventDefault();
+        });
+    })
+
+    $('.smart-menu-modal').click(function(){
+        $('.smart-menu-modal').css('display','none');
+        $('#menu-icon').css('display','block');
+
+        // スクロール防止解除
+        $('html,body').removeAttr('style');
+        $(window).off('touchmove.noscroll'); //スマホ
+    })
+});
  

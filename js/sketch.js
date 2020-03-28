@@ -42,6 +42,8 @@ class Point{
         
         return;
       }
+
+      // 一定フレーム数以下では重力点に引きつけられ、超えると重力がなくなり直線運動をする、やがて出る
       if(frameCount<180){
         var cv = p5.Vector.sub(this.center,this.pos);
         this.vel.add(cv.mult(0.01));
