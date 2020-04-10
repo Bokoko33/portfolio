@@ -526,34 +526,35 @@ h1{
             line-height: 120%;
         }
         p{
-            font-size: 3vw;
+            font-size: 3.5vw;
             margin: 5px 0;
             font-family: $font1, $font3;
             font-weight: 300;
         }
     }
     .work-thumbnail-list{
-        position: absolute;
+        padding: 32px 0 50px;
         width: 80vw;
         left: 0;
         right: 0;
         margin: auto;
         bottom: 17vh;
         display: flex;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        scroll-snap-align:center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        text-align: center;
+        // overflow-x: scroll;
+        // scroll-snap-type: x mandatory;
+        // scroll-snap-align:center;
         list-style: none;
         .work-thumbnail{
             border-style: solid;
-            scroll-snap-align:center;
+            // scroll-snap-align:center;
             border-color:$text-color;
             border-width: 1px;
-            width: 70vw;
+            width: 100%;
             height: calc(9*70vw/16);
-            // left: 0;
-            // right: 0;
-            margin: 0 5px;
+            margin: 10px auto;
             img,iframe{
                 top: 0;
                 left: 0;
