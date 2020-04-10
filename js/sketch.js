@@ -32,7 +32,6 @@ class Point{
     }
     
     update(){
-      console.log(opening_finished);
       if(this.pos.x>-fpos.x+offset || this.pos.x<fpos.x-offset 
       || this.pos.y>-fpos.y+offset || this.pos.y<fpos.y-offset 
       || this.pos.z>-fpos.z+offset || this.pos.z<fpos.z-offset)
@@ -205,17 +204,17 @@ function draw(){
       }
       rotateX(map(mouseY,0,height, 0.2*PI, -0.2*PI));
     }
-    else{ //タブレット、スマホ用
-      if(mouseIsPressed){
-        if(abs(nMouseX)>10){
-          rot_amount = nMouseX*0.7;
-        }
-        if(abs(nMouseX)>3 && abs(rot_amount)<10){
-          rot_amount = nMouseX*0.3;
-        }
-      }
-      rotateX(map(mouseY,0,height, 0.4*PI, -0.4*PI));
-    }
+    // else{ //タブレット、スマホ用
+    //   if(mouseIsPressed){
+    //     if(abs(nMouseX)>10){
+    //       rot_amount = nMouseX*0.7;
+    //     }
+    //     if(abs(nMouseX)>3 && abs(rot_amount)<10){
+    //       rot_amount = nMouseX*0.3;
+    //     }
+    //   }
+    //   rotateX(map(mouseY,0,height, 0.4*PI, -0.4*PI));
+    // }
     
     obj_rot += rot_amount;
     rot_amount *= 0.9;
@@ -245,6 +244,5 @@ function draw(){
     pIndex[i].draw();
   }
   obj_rot -= 0.2;
-  console.log(pIndex.length);
 }
 
