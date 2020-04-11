@@ -1,6 +1,53 @@
+@charset "UTF-8";
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  /* 16px*/
+}
+
+h1 {
+  font-size: 36px;
+  /* IE8以下とAndroid4.3以下用フォールバック */
+  font-size: calc(2.4rem + ((1vw - 0.64rem) * 2.1429));
+  /* 24px~36pxで可変*/
+}
+
+h2 {
+  font-size: 24px;
+  /* IE8以下とAndroid4.3以下用フォールバック */
+  font-size: calc(2rem + ((1vw - 0.64rem) * 0.7143));
+  /* 20px~24pxで可変*/
+}
+
+@media (min-width: 1200px) {
+  /* 1200px以上*/
+  h1 {
+    font-size: 3.6rem;
+    /* 36px*/
+  }
+  h2 {
+    font-size: 2.4rem;
+    /* 24px*/
+  }
+}
+
+@media screen and (max-width: 640px) {
+  /* 640px以下*/
+  h1 {
+    font-size: 2.4rem;
+    /* 24px*/
+  }
+  h2 {
+    font-size: 2rem;
+    /* 20px*/
+  }
+}
+
 html {
   cursor: none;
-  font-size: 10px;
 }
 
 @media screen and (min-width: 481px) {
@@ -146,7 +193,7 @@ html {
 
 .smart-menu-modal nav ul li {
   margin: 8vh 0;
-  font-size: 10vw;
+  font-size: 3.2rem;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -208,7 +255,7 @@ a {
   #title #my-name {
     width: 80vw;
     height: 6vw;
-    font-size: 36px;
+    font-size: 3.6rem;
   }
 }
 
@@ -230,7 +277,7 @@ a {
 
 @media screen and (max-width: 480px) {
   #title p {
-    font-size: 18px;
+    font-size: 1.8re;
     bottom: 60px;
   }
 }
@@ -245,7 +292,6 @@ a {
     height: 12vh;
     text-align: center;
     color: #d4e8c8;
-    font-size: 3.6vw;
     font-family: "Josefin Sans", sans-serif;
   }
 }
@@ -255,7 +301,6 @@ a {
     height: 12vw;
     text-align: center;
     color: #d4e8c8;
-    font-size: 8vw;
     font-family: "Josefin Sans", sans-serif;
   }
 }
@@ -389,20 +434,20 @@ a {
 
 @media screen and (min-width: 1024px) {
   .about-wrap .self-introduction {
-    font-size: 2vw;
+    font-size: 2.9rem;
   }
 }
 
 @media screen and (max-width: 1023px) {
   .about-wrap .self-introduction {
-    font-size: 2.5vw;
+    font-size: 2.4rem;
   }
 }
 
 @media screen and (min-width: 481px) {
   .about-wrap .self-introduction .left-side {
     width: 18vw;
-    margin: 3% 15vw;
+    margin: 3% 10vw;
     float: left;
   }
   .about-wrap .self-introduction .left-side p {
@@ -411,7 +456,7 @@ a {
   }
   .about-wrap .self-introduction .right-side {
     width: 18vw;
-    margin: 3% 15vw;
+    margin: 3% 10vw;
     float: right;
     font-family: "Josefin Sans", sans-serif;
   }
@@ -451,13 +496,13 @@ a {
     font-family: "Josefin Sans", sans-serif;
   }
   .about-wrap .self-introduction .right-side h3 {
-    font-size: 18px;
+    font-size: 1.8rem;
     padding: 5px 0;
   }
   .about-wrap .self-introduction .right-side p, .about-wrap .self-introduction .right-side a {
     line-height: 1.6em;
     padding: 10px 0;
-    font-size: 14px;
+    font-size: 1.6rem;
   }
 }
 
@@ -507,7 +552,7 @@ a {
     border-color: #d4e8c8;
     border-width: 0.1vw;
     width: 50vw;
-    height: 28.125vw;
+    height: 31.25vw;
     margin: 2vw 0;
   }
   .work-thumbnail-list .work-thumbnail img, .work-thumbnail-list .work-thumbnail iframe {
@@ -564,7 +609,7 @@ a {
     border-color: #d4e8c8;
     border-width: 1px;
     width: 100%;
-    height: calc(9*70vw/16);
+    height: calc(10*80vw/16);
     margin: 10px auto;
   }
   .work-thumbnail-list .work-thumbnail img, .work-thumbnail-list .work-thumbnail iframe {

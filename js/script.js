@@ -1,41 +1,41 @@
-$(document).on('click', 'a[href*="#"]', function(event) {
-    var anchor = event.currentTarget;
+// $(document).on('click', 'a[href*="#"]', function(event) {
+//     var anchor = event.currentTarget;
 
-    // if(location.href.indexOf("work08") != -1){
-    //     location.href = 'index.html' + anchor.hash;
-    //     return false;
-    // }
-    // else{
-    //     var adjust = 0;
-    //     var speed = 400;
-    //     var position = $(anchor.hash).offset().top + adjust;
-    //     $('body,html').animate({ scrollTop: position }, speed, 'swing');
-    //     event.preventDefault();
-    //     // location.href = anchor.href;
-    //     return false;
-    // }
+//     // if(location.href.indexOf("work08") != -1){
+//     //     location.href = 'index.html' + anchor.hash;
+//     //     return false;
+//     // }
+//     // else{
+//     //     var adjust = 0;
+//     //     var speed = 400;
+//     //     var position = $(anchor.hash).offset().top + adjust;
+//     //     $('body,html').animate({ scrollTop: position }, speed, 'swing');
+//     //     event.preventDefault();
+//     //     // location.href = anchor.href;
+//     //     return false;
+//     // }
 
     
-    if (anchor.target !== '' && anchor.target !== window.name) {
-        return true;
-    }
+//     if (anchor.target !== '' && anchor.target !== window.name) {
+//         return true;
+//     }
 
-    var documentUrl = location.origin + location.pathname + location.search;
-    var anchorUrl = anchor.protocol + '//' + anchor.host + anchor.pathname + anchor.search;
-    if (documentUrl !== anchorUrl) {
-        return true;
-    }
+//     var documentUrl = location.origin + location.pathname + location.search;
+//     var anchorUrl = anchor.protocol + '//' + anchor.host + anchor.pathname + anchor.search;
+//     if (documentUrl !== anchorUrl) {
+//         return true;
+//     }
 
-    if (anchor.hash !== '') {
-        var adjust = 0;
-        var speed = 400;
-        var position = $(anchor.hash).offset().top + adjust;
-        $('body,html').animate({ scrollTop: position }, speed, 'swing');
-        event.preventDefault();
-        location.hash = anchor.hash;
-        return false;
-    }
-});
+//     if (anchor.hash !== '') {
+//         var adjust = 0;
+//         var speed = 400;
+//         var position = $(anchor.hash).offset().top + adjust;
+//         $('body,html').animate({ scrollTop: position }, speed, 'swing');
+//         event.preventDefault();
+//         location.hash = anchor.hash;
+//         return false;
+//     }
+// });
 
 //マウスカーソルと追従
 var onLink = false;

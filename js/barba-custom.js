@@ -1,16 +1,18 @@
 
 // 現在と同じページのリンクをクリックした場合、リロードをしない設定
 // リロードしたい場合は削除
-var links = document.querySelectorAll('a[href]');
-var cbk = function(e) {
-  if(e.currentTarget.href === window.location.href) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-};
-for(var i = 0; i < links.length; i++) {
-  links[i].addEventListener('click', cbk);
-}
+//つけてるとページ内リンクがうまくいかなくなる
+
+// var links = document.querySelectorAll('a[href]');
+// var cbk = function(e) {
+//   if(e.currentTarget.href === window.location.href) {
+//     e.preventDefault();
+//     e.stopPropagation();
+//   }
+// };
+// for(var i = 0; i < links.length; i++) {
+//   links[i].addEventListener('click', cbk);
+// }
 
 // 新しいページが準備できたときにしたい処理
 Barba.Dispatcher.on('newPageReady', function(currentStatus, oldStatus, container, newPageRawHTML) {
